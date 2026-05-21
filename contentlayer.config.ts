@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files'
+import readingTime from 'reading-time'
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
@@ -15,10 +16,7 @@ export const Blog = defineDocumentType(() => ({
   computedFields: {
     readingTime: {
       type: 'number',
-      resolve: (doc) => {
-        const words = doc.body.raw.split(/\s+/g).length
-        return Math.ceil(words / 200)
-      },
+      resolve: (doc) => Math.ceil(readingTime(doc.body.raw).minutes),
     },
     slug: {
       type: 'string',
@@ -27,4 +25,8 @@ export const Blog = defineDocumentType(() => ({
   },
 }))
 
-export default makeSource({ contentDirPath: 'content/blog', documentTypes: [Blog] })
+export default makeSource({
+  contentDirPath: 'src/content/blog',
+  documentTypes: [Blog],
+  disableImportAliasWarning: true,
+})

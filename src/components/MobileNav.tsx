@@ -4,10 +4,14 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, Menu, Home, User, FileText, FolderGit2, BookOpen, Compass, MessageSquare, Mail } from 'lucide-react'
 import Link from './Link'
-import headerNavLinks from '@/data/headerNavLinks'
+import navigation from '@/data/navigation.json'
+import profile from '@/data/profile.json'
 import ThemeSwitch from './ThemeSwitch'
 
-const iconMap: Record<string, typeof Home> = {
+const headerNavLinks = navigation as { title: string; href: string }[]
+const profileData = profile as { name: string; initials: string }
+
+const iconMap: Record<string, React.ElementType> = {
   Home,
   About: User,
   Blog: FileText,
@@ -59,7 +63,7 @@ const MobileNav = () => {
                     className="flex items-center gap-2"
                   >
                     <span className="flex size-8 items-center justify-center rounded-lg bg-navy text-sm font-bold text-white">
-                      DB
+                      {profileData.initials}
                     </span>
                   </Link>
                   <div className="flex items-center gap-2">
@@ -92,7 +96,7 @@ const MobileNav = () => {
                 </nav>
 
                 <div className="border-t border-border px-6 py-4 text-center text-xs text-text-tertiary dark:border-dark-border dark:text-dark-text-tertiary">
-                  &copy; {new Date().getFullYear()} Dora Bernandismen
+                  &copy; {new Date().getFullYear()} {profileData.name}
                 </div>
               </motion.div>
             </div>

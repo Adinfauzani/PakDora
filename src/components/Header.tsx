@@ -5,9 +5,13 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { Search } from 'lucide-react'
 import Link from './Link'
-import headerNavLinks from '@/data/headerNavLinks'
+import navigation from '@/data/navigation.json'
+import profile from '@/data/profile.json'
 import ThemeSwitch from './ThemeSwitch'
 import MobileNav from './MobileNav'
+
+const headerNavLinks = navigation as { title: string; href: string }[]
+const profileData = profile as { name: string; initials: string }
 
 const Header = () => {
   const pathname = usePathname()
@@ -35,10 +39,10 @@ const Header = () => {
         <div className="flex h-14 items-center justify-between px-5">
           <Link href="/" className="flex items-center gap-2.5">
             <span className="flex size-8 items-center justify-center rounded-xl bg-navy text-sm font-bold text-white">
-              DB
+              {profileData.initials}
             </span>
             <span className="hidden text-sm font-semibold text-text-primary dark:text-dark-text-primary sm:block">
-              Dora Bernandismen
+              {profileData.name}
             </span>
           </Link>
 

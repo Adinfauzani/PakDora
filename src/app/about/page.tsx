@@ -17,12 +17,15 @@ import {
   BarChart3,
   Network,
   ExternalLink,
-  CheckCircle,
-  ChevronRight,
 } from 'lucide-react'
 import CustomLink from '@/components/Link'
 import { cn } from '@/lib/utils'
 import { FadeInView, StaggerGrid, StaggerItem } from '@/components/animations'
+import { Button } from '@/components/ui/button'
+import type { Profile } from '@/types/data'
+import profileData from '@/data/profile.json'
+
+const profile = profileData as Profile
 
 // ──── DATA ────
 
@@ -165,7 +168,6 @@ function TimelineItem({
       transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
       className="group relative flex gap-5 pb-10 last:pb-0"
     >
-      {/* Left: year + dot + line */}
       <div className="flex flex-col items-center">
         <span className="font-display text-xs font-bold text-navy dark:text-navy-300 whitespace-nowrap">
           {year}
@@ -175,7 +177,6 @@ function TimelineItem({
         </div>
         <div className="mt-1 w-px flex-1 bg-border dark:bg-dark-border" />
       </div>
-      {/* Right: content */}
       <div className="flex-1 pb-4">
         <h3 className="font-display text-sm font-semibold text-text-primary dark:text-dark-text-primary">
           {title}
@@ -226,9 +227,10 @@ function SkillBar({
 }
 
 export default function AboutPage() {
+  const firstTwoStats = profile.stats.slice(0, 3)
+
   return (
     <main className="flex-1">
-      {/* ─────────────── HERO ─────────────── */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-navy-50/50 via-surface to-surface pb-12 pt-24 dark:border-dark-border dark:from-navy-900/20 dark:via-dark-surface dark:to-dark-surface">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute -right-32 -top-32 h-72 w-72 rounded-full bg-gold-400/10 blur-[100px]" />
@@ -246,7 +248,7 @@ export default function AboutPage() {
                 />
                 <div className="relative flex h-28 w-28 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-100 to-navy-200 sm:h-32 sm:w-32 dark:from-navy-800 dark:to-navy-900">
                   <span className="font-display text-3xl font-bold text-navy-400 dark:text-navy-300 sm:text-4xl">
-                    DB
+                    {profile.initials}
                   </span>
                 </div>
               </div>
@@ -258,35 +260,33 @@ export default function AboutPage() {
                 </span>
               </h1>
               <p className="mt-2 max-w-lg text-sm text-text-secondary dark:text-dark-text-secondary sm:text-base">
-                Academic Leader, Educator, Researcher di bidang Sains Data dan
-                Kecerdasan Buatan
+                {profile.about.intro}
               </p>
 
-              {/* Badges */}
               <div className="mt-4 flex flex-wrap justify-center gap-2">
-                <span className="badge-gold flex items-center gap-1">
-                  <Star className="h-3 w-3 fill-gold-400" />
-                  Sinta 2
-                </span>
-                <span className="badge-navy flex items-center gap-1">
-                  <GraduationCap className="h-3 w-3" />
-                  Scopus ID
-                </span>
+                {profile.badge.items.map((item) => (
+                  <span
+                    key={item.label}
+                    className={cn(
+                      'inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium',
+                      item.icon === 'star'
+                        ? 'bg-gold-50 text-gold-700 dark:bg-gold-900/40 dark:text-gold-200'
+                        : 'bg-navy-50 text-navy-700 dark:bg-navy-900/40 dark:text-navy-200'
+                    )}
+                  >
+                    {item.label}
+                  </span>
+                ))}
               </div>
 
-              {/* Stat row */}
               <div className="mt-6 flex flex-wrap justify-center gap-4">
-                {[
-                  { num: '10+', label: 'Tahun Pengalaman' },
-                  { num: '50+', label: 'Publikasi' },
-                  { num: '500+', label: 'Mahasiswa' },
-                ].map((s) => (
+                {firstTwoStats.map((s) => (
                   <div
                     key={s.label}
                     className="flex items-center gap-2 rounded-xl border border-border bg-surface px-4 py-2 dark:border-dark-border dark:bg-dark-surface"
                   >
                     <span className="font-display text-base font-bold text-navy dark:text-navy-300">
-                      {s.num}
+                      {s.number}
                     </span>
                     <span className="text-xs text-text-secondary dark:text-dark-text-secondary">
                       {s.label}
@@ -299,7 +299,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─────────────── BIOGRAPHY ─────────────── */}
       <section className="py-16">
         <div className="container">
           <div className="mx-auto max-w-3xl">
@@ -311,40 +310,25 @@ export default function AboutPage() {
 
             <FadeInView delay={0.1}>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                Saya memulai perjalanan akademik dengan dasar yang kuat di bidang Matematika
-                dari Universitas Gadjah Mada, kemudian melanjutkan studi Magister Ilmu
-                Komputer di Institut Teknologi Bandung dengan spesialisasi Kecerdasan Buatan.
-                Ketertarikan saya pada bagaimana data dapat digunakan untuk memecahkan
-                masalah kompleks mendorong saya untuk menempuh pendidikan doktor di
-                Universitas Indonesia.
+                {profile.about.description}
               </p>
             </FadeInView>
 
             <FadeInView delay={0.2}>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                Selama lebih dari sepuluh tahun berkarier di dunia akademik, saya telah
-                mengajar berbagai mata kuliah di bidang Sains Data, Kecerdasan Buatan, dan
-                Statistika Komputasi. Saya percaya bahwa pendekatan pembelajaran yang
-                interaktif dan berbasis proyek adalah kunci untuk mempersiapkan mahasiswa
-                menghadapi tantangan di dunia nyata.
+                {profile.about.description2}
               </p>
             </FadeInView>
 
             <FadeInView delay={0.3}>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                Sebagai Ketua Program Studi Sains Data, saya berkomitmen untuk
-                mengembangkan kurikulum yang relevan dengan kebutuhan industri,
-                mendorong budaya riset yang kuat, dan membangun jejaring kolaborasi
-                dengan berbagai pemangku kepentingan. Saya juga aktif melakukan
-                publikasi ilmiah di jurnal nasional dan internasional serta menjadi
-                reviewer untuk beberapa jurnal bereputasi.
+                {profile.about.description3}
               </p>
             </FadeInView>
           </div>
         </div>
       </section>
 
-      {/* ─────────────── CAREER TIMELINE ─────────────── */}
       <section className="bg-[#f8fafc] py-16 dark:bg-dark-surface-secondary">
         <div className="container">
           <FadeInView>
@@ -362,7 +346,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─────────────── EDUCATION ─────────────── */}
       <section className="py-16">
         <div className="container">
           <FadeInView>
@@ -395,7 +378,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─────────────── SKILL BARS ─────────────── */}
       <section className="bg-[#f8fafc] py-16 dark:bg-dark-surface-secondary">
         <div className="container">
           <div className="mx-auto max-w-2xl">
@@ -415,7 +397,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─────────────── CERTIFICATIONS ─────────────── */}
       <section className="py-16">
         <div className="container">
           <FadeInView>
@@ -447,7 +428,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─────────────── ACHIEVEMENTS / ORGANIZATIONS ─────────────── */}
       <section className="bg-[#f8fafc] py-16 dark:bg-dark-surface-secondary">
         <div className="container">
           <FadeInView>
@@ -479,7 +459,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─────────────── DOWNLOAD CV ─────────────── */}
       <section className="py-20">
         <div className="container">
           <FadeInView>
@@ -493,20 +472,18 @@ export default function AboutPage() {
                 publikasi, dan kualifikasi akademik.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-4">
-                <CustomLink
-                  href="/cv.pdf"
-                  className="btn-primary inline-flex items-center gap-2 text-sm"
-                >
-                  <Download className="h-4 w-4" />
-                  Download CV
-                </CustomLink>
-                <CustomLink
-                  href="/contact"
-                  className="btn-secondary inline-flex items-center gap-2 text-sm"
-                >
-                  Hubungi Saya
-                  <ExternalLink className="h-4 w-4" />
-                </CustomLink>
+                <Button asChild>
+                  <CustomLink href="/cv.pdf">
+                    <Download className="h-4 w-4" />
+                    Download CV
+                  </CustomLink>
+                </Button>
+                <Button variant="secondary" asChild>
+                  <CustomLink href="/contact">
+                    Hubungi Saya
+                    <ExternalLink className="h-4 w-4" />
+                  </CustomLink>
+                </Button>
               </div>
             </div>
           </FadeInView>

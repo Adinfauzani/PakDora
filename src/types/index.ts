@@ -1,4 +1,1 @@
-export interface NavLink {
-  title: string
-  href: string
-}
+export type { NavLink, Socials, StatItem, ButtonLink, BadgeItem, FloatingBadge, Expertise, Hero, About, CTA, SEO, FooterData, Profile } from './data'
