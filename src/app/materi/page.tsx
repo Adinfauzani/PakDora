@@ -43,7 +43,7 @@ export default function MateriPage() {
             <div className="mx-auto max-w-3xl text-center">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-navy-100 px-4 py-1.5 text-sm font-medium text-navy-700 dark:bg-navy-900/40 dark:text-navy-200">
                 <GraduationCap className="size-4" />
-                Program Studi D3 Manajemen Informatika
+                Program Studi Sains Data
               </div>
               <h1 className="font-display text-4xl font-extrabold text-text-primary dark:text-dark-text-primary sm:text-5xl">
                 Materi{' '}

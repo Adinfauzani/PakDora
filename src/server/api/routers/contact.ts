@@ -1,8 +1,15 @@
 import { z } from 'zod'
-import { router, publicProcedure } from '../trpc'
+import { router, publicProcedure, protectedProcedure } from '../trpc'
 import { schema } from '@/server/db'
+import { desc } from 'drizzle-orm'
 
 export const contactRouter = router({
+  all: protectedProcedure.query(async ({ ctx }) => {
+    return await ctx.db
+      .select()
+      .from(schema.contacts)
+      .orderBy(desc(schema.contacts.createdAt))
+  }),
   send: publicProcedure
     .input(z.object({
       name: z.string().min(1).max(100),

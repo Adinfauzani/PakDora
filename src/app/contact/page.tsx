@@ -23,13 +23,18 @@ import { Textarea } from '@/components/ui/textarea'
 import { api } from '@/trpc/react'
 import { toast } from 'sonner'
 import { motion } from 'framer-motion'
+import socialsData from '@/data/socials.json'
+import profileData from '@/data/profile.json'
+import type { Socials } from '@/types/data'
+
+const socials = socialsData as Socials
 
 const contacts = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'dorabernandismen@university.ac.id',
-    href: 'mailto:dorabernandismen@university.ac.id',
+    value: socials.email,
+    href: `mailto:${socials.email}`,
   },
   {
     icon: MapPin,
@@ -40,21 +45,21 @@ const contacts = [
     icon: Microscope,
     label: 'Research',
     value: 'Google Scholar',
-    href: '#',
+    href: socials.googleScholar,
   },
   {
     icon: BookOpen,
     label: 'Publications',
     value: 'Sinta',
-    href: '#',
+    href: socials.sinta,
   },
 ]
 
-const socials = [
-  { icon: Github, name: 'GitHub', href: '#', color: 'hover:text-gray-900 dark:hover:text-white' },
-  { icon: Linkedin, name: 'LinkedIn', href: '#', color: 'hover:text-blue-600' },
-  { icon: Youtube, name: 'YouTube', href: '#', color: 'hover:text-red-600' },
-  { icon: Instagram, name: 'Instagram', href: '#', color: 'hover:text-pink-500' },
+const socialLinks = [
+  { icon: Github, name: 'GitHub', href: socials.github, color: 'hover:text-gray-900 dark:hover:text-white' },
+  { icon: Linkedin, name: 'LinkedIn', href: socials.linkedin, color: 'hover:text-blue-600' },
+  { icon: Youtube, name: 'YouTube', href: socials.youtube, color: 'hover:text-red-600' },
+  { icon: Instagram, name: 'Instagram', href: socials.instagram, color: 'hover:text-pink-500' },
 ]
 
 export default function ContactPage() {
@@ -144,7 +149,7 @@ export default function ContactPage() {
                   Social Media
                 </h3>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {socials.map((item) => {
+                  {socialLinks.map((item) => {
                     const Icon = item.icon
                     return (
                       <CustomLink

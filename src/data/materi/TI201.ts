@@ -8,7 +8,7 @@ export const courseData: CourseData = {
   sks: '3',
   description:
     'Mata kuliah ini membahas konsep dasar pemrograman berorientasi objek menggunakan bahasa Java, mencakup kelas, objek, enkapsulasi, pewarisan, dan polimorfisme.',
-  instructor: 'Dr. Budi Susanto, S.Kom., M.Kom.',
+  instructor: 'Dora Bernandismen, S.Kom., M.Si',
   totalWeeks: 14,
   updatedAt: '2026-01-15',
   modules: [

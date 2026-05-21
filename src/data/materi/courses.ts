@@ -9,7 +9,7 @@ export const courses: CourseMeta[] = [
     sks: '3',
     description:
       'Mata kuliah ini membahas konsep dasar pemrograman berorientasi objek menggunakan bahasa Java, mencakup kelas, objek, enkapsulasi, pewarisan, dan polimorfisme.',
-    instructor: 'Dr. Budi Susanto, S.Kom., M.Kom.',
+    instructor: 'Dora Bernandismen, S.Kom., M.Si',
     totalWeeks: 14,
     updatedAt: '2026-01-15',
   },
@@ -21,7 +21,7 @@ export const courses: CourseMeta[] = [
     sks: '3',
     description:
       'Mata kuliah ini membahas berbagai struktur data fundamental dan algoritma pengolahannya, termasuk array, linked list, stack, queue, tree, dan graph.',
-    instructor: 'Dr. Budi Susanto, S.Kom., M.Kom.',
+    instructor: 'Dora Bernandismen, S.Kom., M.Si',
     totalWeeks: 14,
     updatedAt: '2026-01-15',
   },
@@ -33,7 +33,7 @@ export const courses: CourseMeta[] = [
     sks: '3',
     description:
       'Mata kuliah ini membahas konsep sistem basis data, model data relasional, perancangan basis data, dan penggunaan SQL untuk manipulasi data.',
-    instructor: 'Dr. Budi Susanto, S.Kom., M.Kom.',
+    instructor: 'Dora Bernandismen, S.Kom., M.Si',
     totalWeeks: 14,
     updatedAt: '2026-01-15',
   },
@@ -45,7 +45,7 @@ export const courses: CourseMeta[] = [
     sks: '3',
     description:
       'Mata kuliah ini membahas metodologi pengembangan perangkat lunak mulai dari analisis kebutuhan hingga pemeliharaan, mencakup model Waterfall dan Agile.',
-    instructor: 'Dr. Budi Susanto, S.Kom., M.Kom.',
+    instructor: 'Dora Bernandismen, S.Kom., M.Si',
     totalWeeks: 14,
     updatedAt: '2026-01-15',
   },

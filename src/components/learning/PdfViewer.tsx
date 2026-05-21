@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
-import { Document, Page } from 'react-pdf'
+import { Document, Page, pdfjs } from 'react-pdf'
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   Plus,

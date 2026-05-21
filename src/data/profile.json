@@ -7,7 +7,7 @@
   "institution": "Universitas Saintek Muhammadiyah",
   "fullTitle": "Kaprodi Sains Data Universitas Saintek Muhammadiyah",
   "currentCareer": "Ketua Pimpinan Cabang Muhammadiyah Gunung Putri",
-  "journalRole": "Pengelola Jurnal Juara Belia",
+  "journalRole": "Pengelola Jurnal Juara",
 
   "badge": {
     "label": "Kaprodi Sains Data · Dosen · Researcher",
@@ -20,7 +20,7 @@
   "hero": {
     "greeting": "Dora Bernandismen",
     "headline": "Membangun generasi akademik modern melalui pendidikan, riset, dan teknologi.",
-    "description": "Akademisi dan pemimpin pendidikan yang aktif dalam pengembangan teknologi, riset, dan publikasi ilmiah. Berkomitmen menjembatani teori dan praktik untuk menghasilkan lulusan yang kompetitif.",
+    "description": "Kaprodi Sains Data Universitas Saintek Muhammadiyah yang aktif dalam pengembangan pendidikan berbasis teknologi, kepemimpinan organisasi, dan publikasi ilmiah. Berkomitmen menjembatani teori dan praktik untuk menghasilkan lulusan yang kompetitif dan berdaya saing global.",
     "role": "Kaprodi & Dosen | Academic Leader, Educator, Researcher",
     "primaryButton": { "label": "About Me", "href": "/about" },
     "secondaryButton": { "label": "Materi Kuliah", "href": "/materi" },
@@ -29,35 +29,35 @@
 
   "about": {
     "intro": "Akademisi dan pemimpin pendidikan yang aktif dalam pengembangan teknologi, riset, dan publikasi ilmiah.",
-    "description": "Saya memulai perjalanan akademik dengan dasar yang kuat di bidang Matematika dari Universitas Gadjah Mada, kemudian melanjutkan studi Magister Ilmu Komputer di Institut Teknologi Bandung dengan spesialisasi Kecerdasan Buatan. Ketertarikan saya pada bagaimana data dapat digunakan untuk memecahkan masalah kompleks mendorong saya untuk menempuh pendidikan doktor di Universitas Indonesia.",
-    "description2": "Selama lebih dari sepuluh tahun berkarier di dunia akademik, saya telah mengajar berbagai mata kuliah di bidang Sains Data, Kecerdasan Buatan, dan Statistika Komputasi. Saya percaya bahwa pendekatan pembelajaran yang interaktif dan berbasis proyek adalah kunci untuk mempersiapkan mahasiswa menghadapi tantangan di dunia nyata.",
-    "description3": "Sebagai Ketua Program Studi Sains Data, saya berkomitmen untuk mengembangkan kurikulum yang relevan dengan kebutuhan industri, mendorong budaya riset yang kuat, dan membangun jejaring kolaborasi dengan berbagai pemangku kepentingan.",
+    "description": "Dora Bernandismen, S.Kom., M.Si merupakan akademisi yang aktif dalam pengembangan pendidikan modern berbasis teknologi dan data. Saat ini menjabat sebagai Ketua Program Studi Sains Data di Universitas Saintek Muhammadiyah, serta aktif dalam kepemimpinan organisasi sebagai Ketua Pimpinan Cabang Muhammadiyah Gunung Putri dan Pengelola Jurnal Juara Belia.",
+    "description2": "Perjalanan akademik dimulai dengan dasar yang kuat di bidang Ilmu Komputer, kemudian berkembang ke bidang Sains Data dan Kecerdasan Buatan. Ketertarikan pada bagaimana data dan teknologi dapat digunakan untuk memecahkan masalah kompleks mendorong untuk terus berkarya di bidang pendidikan dan riset.",
+    "description3": "Sebagai Ketua Program Studi Sains Data, berkomitmen untuk mengembangkan kurikulum yang relevan dengan kebutuhan industri, mendorong budaya riset yang kuat, dan membangun jejaring kolaborasi dengan berbagai pemangku kepentingan di bidang akademik maupun industri.",
     "quote": "Pendidikan bukan sekadar transfer ilmu, tetapi membentuk karakter, membuka wawasan, dan menanamkan keberanian untuk terus bertanya."
   },
 
   "expertise": [
-    { "title": "Data Science", "description": "Foundations data science, dari eksplorasi data hingga pemodelan prediktif dengan pendekatan hands-on.", "gradient": "from-navy to-navy-700" },
-    { "title": "Artificial Intelligence", "description": "Supervised/unsupervised learning, neural networks, dan aplikasi AI di dunia nyata.", "gradient": "from-gold to-gold-700" },
-    { "title": "Academic Mentoring", "description": "Bimbingan penelitian, penulisan ilmiah, dan pengembangan karier di bidang data dan teknologi.", "gradient": "from-emerald to-emerald-700" },
-    { "title": "Research Methodology", "description": "Metodologi penelitian kuantitatif dan kualitatif untuk riset di bidang sains data dan komputasi.", "gradient": "from-navy-600 to-navy-800" }
+    { "title": "Data Science", "description": "Foundations data science, dari eksplorasi data hingga pemodelan prediktif dengan pendekatan hands-on dan berbasis proyek nyata.", "gradient": "from-navy to-navy-700" },
+    { "title": "Artificial Intelligence", "description": "Pengembangan dan penerapan AI untuk solusi pendidikan, termasuk adaptive learning dan analitik prediktif.", "gradient": "from-gold to-gold-700" },
+    { "title": "Academic Leadership", "description": "Kepemimpinan program studi, pengembangan kurikulum, akreditasi, dan pengelolaan jurnal ilmiah.", "gradient": "from-emerald to-emerald-700" },
+    { "title": "Research & Publication", "description": "Metodologi penelitian, publikasi ilmiah di jurnal nasional dan internasional, serta pengelolaan publikasi.", "gradient": "from-navy-600 to-navy-800" }
   ],
 
   "stats": [
     { "number": "10+", "label": "Tahun Pengalaman", "value": "10+ Years Experience" },
-    { "number": "50+", "label": "Publikasi", "value": "50+ Publications" },
-    { "number": "500+", "label": "Mahasiswa", "value": "500+ Students" },
-    { "number": "8", "label": "Mata Kuliah", "value": "8 Courses" }
+    { "number": "50+", "label": "Publikasi Ilmiah", "value": "50+ Publications" },
+    { "number": "500+", "label": "Mahasiswa Dibimbing", "value": "500+ Students Mentored" },
+    { "number": "8", "label": "Mata Kuliah", "value": "8 Courses Taught" }
   ],
 
   "floatingBadges": [
     { "label": "Sinta 4", "icon": "star", "position": "bottom-right", "color": "text-gold" },
     { "label": "Scopus ID", "icon": "graduation-cap", "position": "top-left", "color": "text-navy-500" },
-    { "label": "Scopus", "icon": "award", "position": "bottom-left", "color": "text-emerald" }
+    { "label": "Kaprodi", "icon": "award", "position": "bottom-left", "color": "text-emerald" }
   ],
 
   "cta": {
     "title": "Tertarik untuk Berkolaborasi?",
-    "description": "Saya terbuka untuk kolaborasi riset, pengajaran bersama, atau diskusi akademik di bidang Sains Data dan Kecerdasan Buatan.",
+    "description": "Saya terbuka untuk kolaborasi riset, pengajaran bersama, atau diskusi akademik di bidang Sains Data dan Kecerdasan Buatan. Mari bersama memajukan pendidikan dan riset di Indonesia.",
     "primaryButton": { "label": "Hubungi Saya", "href": "/contact" },
     "secondaryButton": { "label": "Lihat Proyek", "href": "/projects" }
   },
@@ -65,8 +65,8 @@
   "seo": {
     "title": "Dora Bernandismen — Kaprodi Sains Data | Academic Leader, Educator, Researcher",
     "titleTemplate": "%s — Dora Bernandismen",
-    "description": "Kaprodi Sains Data | Academic Leader, Educator, Researcher. Membangun masa depan akademik di bidang Sains Data dan Kecerdasan Buatan.",
-    "keywords": ["Dora Bernandismen", "Sains Data", "Data Science", "AI", "Academic", "Research", "Pendidikan", "Universitas Saintek Muhammadiyah"],
+    "description": "Kaprodi Sains Data Universitas Saintek Muhammadiyah. Academic Leader, Educator, Researcher. Aktif dalam pendidikan, organisasi, dan publikasi ilmiah.",
+    "keywords": ["Dora Bernandismen", "Sains Data", "Data Science", "AI", "Academic", "Research", "Pendidikan", "Universitas Saintek Muhammadiyah", "Muhammadiyah"],
     "ogTitle": "Dora Bernandismen",
     "ogDescription": "Kaprodi Sains Data | Academic Leader, Educator, Researcher",
     "ogLocale": "id_ID",

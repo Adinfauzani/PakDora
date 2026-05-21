@@ -16,29 +16,37 @@ const profileData = profile as { name: string; initials: string }
 const Header = () => {
   const pathname = usePathname()
   const [hidden, setHidden] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const prevScroll = useRef(0)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const diff = latest - prevScroll.current
-    if (diff > 0 && latest > 100) {
+    if (diff > 0 && latest > 80) {
       setHidden(true)
     } else if (diff < 0) {
       setHidden(false)
     }
+    setScrolled(latest > 20)
     prevScroll.current = latest
   })
 
   return (
     <motion.header
-      className="sticky top-4 z-50 mx-auto w-full max-w-6xl px-4"
-      animate={{ y: hidden ? -120 : 0 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className="fixed top-0 left-0 right-0 z-50"
+      animate={{ y: hidden ? -100 : 0 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
-      <nav className="rounded-2xl border border-border bg-surface/80 backdrop-blur-xl dark:border-dark-border dark:bg-dark-surface/80">
-        <div className="flex h-14 items-center justify-between px-5">
+      <div className="mx-auto max-w-6xl px-4 py-3">
+        <nav
+          className={`mx-auto flex h-12 items-center justify-between rounded-full border px-4 transition-all duration-300 ${
+            scrolled
+              ? 'border-dark-border/40 bg-dark-surface-card/70 backdrop-blur-xl shadow-soft dark:border-dark-border/30 dark:bg-dark-surface-card/80'
+              : 'border-transparent bg-transparent'
+          }`}
+        >
           <Link href="/" className="flex items-center gap-2.5">
-            <span className="flex size-8 items-center justify-center rounded-xl bg-navy text-sm font-bold text-white">
+            <span className="flex size-8 items-center justify-center rounded-full bg-navy text-xs font-bold text-white tracking-tight">
               {profileData.initials}
             </span>
             <span className="hidden text-sm font-semibold text-text-primary dark:text-dark-text-primary sm:block">
@@ -46,25 +54,25 @@ const Header = () => {
             </span>
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-0.5 lg:flex">
             {headerNavLinks.map((link) => {
               const isActive = pathname === link.href
               return (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`relative rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? 'text-text-primary dark:text-dark-text-primary'
-                      : 'text-text-secondary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary'
+                      : 'text-text-secondary/80 hover:text-text-primary dark:text-dark-text-secondary/80 dark:hover:text-dark-text-primary'
                   }`}
                 >
                   {link.title}
                   {isActive && (
                     <motion.span
-                      layoutId="active-nav"
-                      className="absolute inset-0 rounded-lg bg-navy/10 dark:bg-navy/20"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full bg-navy/10 dark:bg-navy/30"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
                 </Link>
@@ -73,20 +81,23 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-1">
-            <button className="btn-ghost size-9" aria-label="Search">
-              <Search className="size-4" />
+            <button
+              className="flex size-8 items-center justify-center rounded-full text-text-secondary/60 transition-colors hover:text-text-primary dark:text-dark-text-secondary/60 dark:hover:text-dark-text-primary"
+              aria-label="Search"
+            >
+              <Search className="size-3.5" />
             </button>
             <ThemeSwitch />
             <Link
               href="/cv.pdf"
-              className="btn-secondary hidden h-9 rounded-xl px-4 text-sm sm:flex"
+              className="hidden h-8 items-center rounded-full bg-navy px-4 text-xs font-medium text-white transition-all hover:bg-navy-700 sm:flex active:scale-[0.97]"
             >
               Download CV
             </Link>
             <MobileNav />
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </motion.header>
   )
 }

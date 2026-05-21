@@ -31,6 +31,13 @@ const profile = profileData as Profile
 
 const timelineData = [
   {
+    year: '2025',
+    title: 'Ketua Pimpinan Cabang Muhammadiyah Gunung Putri',
+    description:
+      'Memimpin amal usaha dan organisasi di tingkat cabang, mendorong digitalisasi pendidikan dan pemberdayaan masyarakat berbasis teknologi.',
+    icon: Users,
+  },
+  {
     year: '2024',
     title: 'Ketua Program Studi Sains Data',
     description:
@@ -38,53 +45,40 @@ const timelineData = [
     icon: Briefcase,
   },
   {
-    year: '2022',
-    title: 'Dosen Tetap Sains Data',
+    year: '2023',
+    title: 'Pengelola Jurnal Juara Belia',
     description:
-      'Bergabung sebagai dosen tetap di Program Studi Sains Data. Mengampu mata kuliah inti seperti Machine Learning, Data Mining, dan Statistika Komputasi.',
+      'Mengelola jurnal ilmiah sebagai wadah publikasi hasil penelitian dosen dan mahasiswa, serta mendorong budaya menulis ilmiah di lingkungan akademik.',
     icon: BookOpen,
   },
   {
-    year: '2020',
-    title: 'Doktor Ilmu Komputer',
+    year: '2022',
+    title: 'Dosen Tetap Sains Data',
     description:
-      'Menyelesaikan program doktor di Universitas Indonesia dengan disertasi tentang penerapan ensemble learning untuk prediksi multivariate time series.',
+      'Bergabung sebagai dosen tetap di Program Studi Sains Data Universitas Saintek Muhammadiyah. Mengampu mata kuliah inti seperti Machine Learning, Data Mining, dan Statistika Komputasi.',
     icon: GraduationCap,
   },
   {
-    year: '2017',
+    year: '2020',
     title: 'Dosen Informatika',
     description:
-      'Memulai karier sebagai dosen tetap di Program Studi Informatika. Aktif dalam penelitian dan publikasi ilmiah di bidang Kecerdasan Buatan.',
-    icon: Users,
-  },
-  {
-    year: '2015',
-    title: 'Magister Ilmu Komputer',
-    description:
-      'Lulus program magister dari Institut Teknologi Bandung dengan fokus pada Kecerdasan Buatan. Tesis mengenai optimasi algoritma machine learning untuk data tidak seimbang.',
+      'Memulai karier sebagai dosen tetap di bidang Informatika. Aktif dalam penelitian dan publikasi ilmiah di bidang Kecerdasan Buatan dan Sains Data.',
     icon: Award,
   },
 ]
 
 const educationData = [
   {
-    degree: 'Doktor (S3) Ilmu Komputer',
+    degree: 'Magister (S2) Ilmu Komputer',
     institution: 'Universitas Indonesia',
     year: '2020',
     icon: GraduationCap,
   },
   {
-    degree: 'Magister (S2) Ilmu Komputer',
-    institution: 'Institut Teknologi Bandung',
+    degree: 'Sarjana (S1) Ilmu Komputer',
+    institution: 'Universitas Brawijaya',
     year: '2015',
     icon: BookMarked,
-  },
-  {
-    degree: 'Sarjana (S1) Matematika',
-    institution: 'Universitas Gadjah Mada',
-    year: '2012',
-    icon: BarChart3,
   },
 ]
 
@@ -101,9 +95,9 @@ const skillData = [
 
 const certificationData = [
   {
-    title: 'Certified Data Scientist',
-    issuer: 'BNSP (Badan Nasional Sertifikasi Profesi)',
-    icon: Award,
+    title: 'Sinta 4 Indexed',
+    issuer: 'Kemendikbudristek',
+    icon: Star,
   },
   {
     title: 'Google Data Analytics Professional',
@@ -111,21 +105,21 @@ const certificationData = [
     icon: FileText,
   },
   {
-    title: 'AWS Cloud Practitioner',
-    issuer: 'Amazon Web Services',
+    title: 'Pengelola Jurnal Terakreditasi',
+    issuer: 'ARJUNA / Kemendikbudristek',
     icon: Code,
   },
   {
-    title: 'Microsoft Azure AI Fundamentals',
-    issuer: 'Microsoft',
+    title: 'AI for Education',
+    issuer: 'Kemendikbudristek',
     icon: Lightbulb,
   },
 ]
 
 const achievementData = [
   {
-    title: 'IEEE',
-    desc: 'Institute of Electrical and Electronics Engineers — Anggota Aktif',
+    title: 'Muhammadiyah',
+    desc: 'Pimpinan Cabang Muhammadiyah Gunung Putri — Ketua',
     icon: Network,
   },
   {
@@ -139,8 +133,8 @@ const achievementData = [
     icon: TrendingUp,
   },
   {
-    title: 'Reviewer Jurnal Internasional',
-    desc: 'Berkontribusi sebagai reviewer pada jurnal bereputasi internasional',
+    title: 'Jurnal Juara Belia',
+    desc: 'Pengelola jurnal ilmiah — Mendorong publikasi akademik',
     icon: FileText,
   },
 ]

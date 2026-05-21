@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import type { Profile } from '@/types/data'
 import profileData from '@/data/profile.json'
+import { ClerkProvider } from '@clerk/nextjs'
 import ThemeProviders from './theme-providers'
 import TRPCProvider from './trpc-provider'
 import Header from '@/components/Header'
@@ -30,14 +31,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="id" suppressHydrationWarning>
       <body className="flex min-h-screen flex-col antialiased">
-        <ThemeProviders>
-          <TRPCProvider>
+        <ClerkProvider>
+          <ThemeProviders>
+            <TRPCProvider>
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
             <Toaster />
           </TRPCProvider>
         </ThemeProviders>
+        </ClerkProvider>
       </body>
     </html>
   )

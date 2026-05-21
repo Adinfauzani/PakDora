@@ -8,7 +8,7 @@ export const courseData: CourseData = {
   sks: '3',
   description:
     'Mata kuliah ini membahas metodologi pengembangan perangkat lunak mulai dari analisis kebutuhan hingga pemeliharaan, mencakup model Waterfall dan Agile.',
-  instructor: 'Dr. Budi Susanto, S.Kom., M.Kom.',
+  instructor: 'Dora Bernandismen, S.Kom., M.Si',
   totalWeeks: 14,
   updatedAt: '2026-01-15',
   modules: [
