@@ -1,0 +1,6 @@
+export { courses, getCourseById } from './courses'
+export { courseData as TI201 } from './TI201'
+export { courseData as TI202 } from './TI202'
+export { courseData as TI301 } from './TI301'
+export { courseData as TI401 } from './TI401'
+export type { CourseMeta, CourseData, WeekModule } from '@/types/materi'

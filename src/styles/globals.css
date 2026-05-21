@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&family=Geist:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Geist', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-navy-50: #f0f4f8;
+  --color-navy-100: #d9e2ec;
+  --color-navy-200: #bcccdc;
+  --color-navy-300: #9fb3c8;
+  --color-navy-400: #829ab1;
+  --color-navy-500: #627d98;
+  --color-navy-600: #486581;
+  --color-navy-700: #334e68;
+  --color-navy-800: #243b53;
+  --color-navy-900: #102a43;
+  --color-navy: #1e3a5f;
+
+  --color-gold-50: #fdf8ed;
+  --color-gold-100: #f9edcd;
+  --color-gold-200: #f2d99c;
+  --color-gold-300: #eac46b;
+  --color-gold-400: #dfb157;
+  --color-gold-500: #d4a843;
+  --color-gold-600: #b88d2e;
+  --color-gold-700: #9a7421;
+  --color-gold-800: #7d5d18;
+  --color-gold-900: #604710;
+  --color-gold: #d4a843;
+
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
+  --color-emerald: #059669;
+
+  --color-surface: #ffffff;
+  --color-dark-surface: #0B1220;
+  --color-dark-surface-secondary: #111827;
+  --color-dark-surface-tertiary: #1f2937;
+  --color-text-primary: #111827;
+  --color-dark-text-primary: #f3f4f6;
+  --color-text-secondary: #6b7280;
+  --color-dark-text-secondary: #9ca3af;
+  --color-text-tertiary: #9ca3af;
+  --color-dark-text-tertiary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-dark-border: #1f2937;
+  --color-border-light: #f3f4f6;
+  --color-dark-border-light: #374151;
+
+  --shadow-soft: 0 2px 4px rgb(0 0 0 / 0.05);
+  --shadow-card: 0 4px 12px rgb(0 0 0 / 0.08);
+  --shadow-elevated: 0 8px 24px rgb(0 0 0 / 0.12);
+  --shadow-hover: 0 12px 32px rgb(0 0 0 / 0.15);
+
+  --animate-fade-up: fade-up 0.5s ease-out;
+  --animate-fade-in: fade-in 0.4s ease-out;
+  --animate-scale-in: scale-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-shimmer: shimmer 2s infinite linear;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+body {
+  @apply bg-surface text-text-primary transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-dark-surface text-dark-text-primary;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-navy px-6 py-3 font-medium text-white transition-all duration-200;
+}
+
+.btn-primary:hover {
+  @apply bg-navy-700;
+}
+
+.btn-primary:focus-visible {
+  @apply outline-none ring-2 ring-navy-500 ring-offset-2;
+}
+
+.dark .btn-primary:focus-visible {
+  @apply ring-offset-dark-surface;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl border border-border bg-transparent px-6 py-3 font-medium text-text-primary transition-all duration-200;
+}
+
+.btn-secondary:hover {
+  @apply bg-gray-50;
+}
+
+.btn-secondary:focus-visible {
+  @apply outline-none ring-2 ring-navy-500 ring-offset-2;
+}
+
+.dark .btn-secondary {
+  @apply border-dark-border text-dark-text-primary;
+}
+
+.dark .btn-secondary:hover {
+  @apply bg-dark-surface-tertiary;
+}
+
+.dark .btn-secondary:focus-visible {
+  @apply ring-offset-dark-surface;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl bg-transparent px-4 py-2 font-medium text-text-primary transition-all duration-200;
+}
+
+.btn-ghost:hover {
+  @apply bg-gray-100;
+}
+
+.dark .btn-ghost {
+  @apply text-dark-text-primary;
+}
+
+.dark .btn-ghost:hover {
+  @apply bg-dark-surface-tertiary;
+}
+
+.card-base {
+  @apply rounded-2xl border border-border bg-surface p-5 shadow-soft;
+}
+
+.dark .card-base {
+  @apply border-dark-border bg-dark-surface;
+}
+
+.card-hover {
+  @apply rounded-2xl border border-border bg-surface p-5 shadow-soft transition-all duration-200;
+}
+
+.card-hover:hover {
+  @apply -translate-y-0.5 shadow-hover;
+}
+
+.dark .card-hover {
+  @apply border-dark-border bg-dark-surface;
+}
+
+.card-elevated {
+  @apply rounded-2xl bg-surface shadow-elevated;
+}
+
+.dark .card-elevated {
+  @apply bg-dark-surface;
+}
+
+.badge-navy {
+  @apply rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-700;
+}
+
+.dark .badge-navy {
+  @apply bg-navy-900/40 text-navy-200;
+}
+
+.badge-gold {
+  @apply rounded-full bg-gold-50 px-3 py-1 text-xs font-medium text-gold-700;
+}
+
+.dark .badge-gold {
+  @apply bg-gold-900/40 text-gold-200;
+}
+
+.badge-emerald {
+  @apply rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700;
+}
+
+.dark .badge-emerald {
+  @apply bg-emerald-900/40 text-emerald-200;
+}
+
+.badge-gray {
+  @apply rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700;
+}
+
+.dark .badge-gray {
+  @apply bg-gray-800 text-gray-200;
+}
+
+.section-title {
+  @apply text-center;
+}
+
+.section-title h2 {
+  @apply font-display text-2xl font-bold text-text-primary;
+}
+
+.dark .section-title h2 {
+  @apply text-dark-text-primary;
+}
+
+.section-title p {
+  @apply mx-auto mt-2 max-w-2xl text-text-secondary;
+}
+
+.dark .section-title p {
+  @apply text-dark-text-secondary;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-navy via-navy-600 to-navy-400 bg-clip-text text-transparent;
+}
+
+.reading-progress {
+  @apply fixed left-0 top-0 z-50 h-0.5 bg-gradient-to-r from-navy via-navy-600 to-navy-400;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
+}

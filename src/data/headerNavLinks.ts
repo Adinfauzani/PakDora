@@ -1,0 +1,14 @@
+import type { NavLink } from '@/types'
+
+const headerNavLinks: NavLink[] = [
+  { title: 'Home', href: '/' },
+  { title: 'About', href: '/about' },
+  { title: 'Blog', href: '/blog' },
+  { title: 'Projects', href: '/projects' },
+  { title: 'Materi', href: '/materi' },
+  { title: 'Uses', href: '/uses' },
+  { title: 'Guestbook', href: '/guestbook' },
+  { title: 'Contact', href: '/contact' },
+]
+
+export default headerNavLinks
