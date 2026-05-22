@@ -3,6 +3,13 @@ export interface NavLink {
   href: string
 }
 
+export interface NavGroup {
+  title: string
+  children: { title: string; href: string }[]
+}
+
+export type NavItem = NavLink | NavGroup
+
 export interface Socials {
   email: string
   linkedin: string

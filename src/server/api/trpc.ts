@@ -5,11 +5,18 @@ import { db } from '@/server/db'
 import { auth } from '@clerk/nextjs/server'
 
 export async function createTRPCContext(req: Request) {
-  const session = await auth()
+  let userId: string | null | undefined
+  try {
+    const session = await auth()
+    userId = session.userId
+  } catch {
+    userId = null
+  }
+
   return {
     db,
     headers: req.headers,
-    userId: session.userId,
+    userId,
   }
 }
 

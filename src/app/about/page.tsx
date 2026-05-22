@@ -46,7 +46,7 @@ const timelineData = [
   },
   {
     year: '2023',
-    title: 'Pengelola Jurnal Juara Belia',
+    title: 'Pengelola Jurnal Juara',
     description:
       'Mengelola jurnal ilmiah sebagai wadah publikasi hasil penelitian dosen dan mahasiswa, serta mendorong budaya menulis ilmiah di lingkungan akademik.',
     icon: BookOpen,

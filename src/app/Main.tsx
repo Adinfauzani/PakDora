@@ -21,6 +21,7 @@ import {
 } from 'lucide-react'
 import CustomLink from '@/components/Link'
 import { FadeInView, StaggerGrid, StaggerItem, MeshGradient } from '@/components/animations'
+import LineWaves from '@/components/LineWaves'
 import { Badge } from '@/components/ui/badge'
 import type { Profile } from '@/types/data'
 import profileData from '@/data/profile.json'
@@ -50,6 +51,19 @@ export default function Main() {
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <MeshGradient />
+        <LineWaves
+          speed={0.12}
+          innerLineCount={14}
+          outerLineCount={16}
+          warpIntensity={0.25}
+          rotation={-25}
+          edgeFadeWidth={0.2}
+          brightness={0.035}
+          color1="#ffffff"
+          color2="#d4d4d4"
+          color3="#a3a3a3"
+          enableMouseInteraction={false}
+        />
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="absolute -top-1/4 -right-1/4 h-[600px] w-[600px] rounded-full bg-navy-500/5 blur-[150px] dark:bg-navy-400/10" />
           <div className="absolute -bottom-1/4 -left-1/4 h-[500px] w-[500px] rounded-full bg-gold-500/5 blur-[150px] dark:bg-gold-400/8" />
@@ -57,13 +71,11 @@ export default function Main() {
         </div>
 
         <div className="container relative pt-28 pb-20">
-          <div className="grid items-center gap-16 lg:grid-cols-12">
-            {/* ── LEFT: Content ── */}
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7"
             >
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -75,11 +87,8 @@ export default function Main() {
                 {profile.badge.label}
               </motion.div>
 
-              <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-                <span className="text-text-primary dark:text-dark-text-primary">{profile.name.split(' ')[0]} </span>
-                <span className="bg-gradient-to-r from-navy via-gold to-navy bg-clip-text text-transparent">
-                  {profile.name.split(' ').slice(1).join(' ')}
-                </span>
+              <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-text-primary dark:text-dark-text-primary sm:text-5xl lg:text-6xl xl:text-7xl">
+                {profile.name}
               </h1>
 
               <p className="mt-4 text-lg font-medium text-text-primary/80 dark:text-dark-text-primary/80 sm:text-xl">
@@ -107,89 +116,6 @@ export default function Main() {
                 </CustomLink>
               </div>
 
-              {/* Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-10 flex flex-wrap gap-3"
-              >
-                {profile.stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="group relative rounded-2xl border border-border/50 bg-white/40 px-4 py-3 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-navy/20 hover:shadow-md dark:border-dark-border/30 dark:bg-dark-surface-card/40 dark:hover:border-navy-400/20"
-                  >
-                    <p className="font-display text-lg font-bold tracking-tight text-text-primary dark:text-dark-text-primary">
-                      {stat.number}
-                    </p>
-                    <p className="mt-0.5 whitespace-nowrap text-[11px] font-medium text-text-secondary dark:text-dark-text-secondary">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* ── RIGHT: Avatar + badges ── */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5"
-            >
-              <div className="relative mx-auto flex w-fit flex-col items-center justify-center">
-                {/* Glow ring */}
-                <div
-                  aria-hidden
-                  className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-navy-400/30 via-gold-400/20 to-navy-500/30 opacity-60 blur-xl"
-                  style={{ padding: '8px' }}
-                />
-
-                {/* Avatar placeholder */}
-                <div className="relative flex h-64 w-64 items-center justify-center rounded-[2rem] bg-gradient-to-br from-navy-100 via-navy-200/80 to-gold-100/50 shadow-xl sm:h-72 sm:w-72 lg:h-80 lg:w-80 dark:from-navy-900 dark:via-navy-800 dark:to-navy-900/80">
-                  <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-navy-500/10 via-transparent to-gold-500/10" />
-                  <span className="font-display text-6xl font-bold tracking-tight text-navy-400/80 sm:text-7xl lg:text-8xl dark:text-navy-300/60">
-                    {profile.initials}
-                  </span>
-                </div>
-
-                {/* Floating badges */}
-                {profile.floatingBadges.map((badge, i) => {
-                  const Icon = iconMap[badge.icon] || Star
-                  const positions = [
-                    'absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4',
-                    'absolute -left-3 -top-3 sm:-left-4 sm:-top-4',
-                    'absolute -bottom-12 -left-3 sm:-bottom-14 sm:-left-4',
-                  ]
-                  const delays = [0.7, 0.85, 1.0]
-                  return (
-                    <motion.div
-                      key={badge.label}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{
-                        delay: delays[i],
-                        duration: 0.5,
-                        ease: [0.16, 1, 0.3, 1],
-                      }}
-                      className={`${positions[i]} flex items-center gap-2 rounded-xl border border-border/50 bg-white/80 px-4 py-2.5 shadow-elevated backdrop-blur-md dark:border-dark-border/40 dark:bg-dark-surface-card/80`}
-                    >
-                      <Icon
-                        className={`h-4 w-4 ${
-                          badge.color === 'text-gold'
-                            ? 'fill-gold text-gold'
-                            : badge.color === 'text-emerald'
-                              ? 'text-emerald'
-                              : 'text-navy-500'
-                        }`}
-                      />
-                      <span className="whitespace-nowrap text-xs font-semibold text-text-primary dark:text-dark-text-primary">
-                        {badge.label}
-                      </span>
-                    </motion.div>
-                  )
-                })}
-              </div>
             </motion.div>
           </div>
         </div>

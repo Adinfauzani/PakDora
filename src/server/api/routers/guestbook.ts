@@ -5,6 +5,7 @@ import { eq, desc } from 'drizzle-orm'
 
 export const guestbookRouter = router({
   all: publicProcedure.query(async ({ ctx }) => {
+    if (!ctx.db) return []
     const entries = await ctx.db
       .select()
       .from(schema.guestbookEntries)
@@ -20,6 +21,7 @@ export const guestbookRouter = router({
       githubUsername: z.string().optional(),
     }))
     .mutation(async ({ ctx, input }) => {
+      if (!ctx.db) throw new Error('Database not configured')
       const [entry] = await ctx.db
         .insert(schema.guestbookEntries)
         .values({ ...input, approved: false })

@@ -2,9 +2,14 @@
   { "title": "Home", "href": "/" },
   { "title": "About", "href": "/about" },
   { "title": "Blog", "href": "/blog" },
-  { "title": "Projects", "href": "/projects" },
   { "title": "Materi", "href": "/materi" },
-  { "title": "Uses", "href": "/uses" },
-  { "title": "Guestbook", "href": "/guestbook" },
-  { "title": "Contact", "href": "/contact" }
+  {
+    "title": "More",
+    "children": [
+      { "title": "Projects", "href": "/projects" },
+      { "title": "Uses", "href": "/uses" },
+      { "title": "Guestbook", "href": "/guestbook" },
+      { "title": "Contact", "href": "/contact" }
+    ]
+  }
 ]
