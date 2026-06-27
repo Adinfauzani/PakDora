@@ -43,3 +43,25 @@ export const contacts = pgTable('contacts', {
   read: boolean('read').default(false),
   createdAt: timestamp('created_at').defaultNow(),
 })
+
+export const learningVideos = pgTable('learning_videos', {
+  id: serial('id').primaryKey(),
+  slug: varchar('slug', { length: 255 }).unique().notNull(),
+  title: varchar('title', { length: 255 }).notNull(),
+  description: text('description').notNull(),
+  thumbnail: varchar('thumbnail', { length: 512 }),
+  videoType: varchar('video_type', { length: 16 }).notNull().default('youtube'),
+  videoUrl: varchar('video_url', { length: 1024 }),
+  youtubeId: varchar('youtube_id', { length: 64 }),
+  duration: varchar('duration', { length: 16 }).notNull(),
+  category: varchar('category', { length: 64 }).notNull(),
+  level: varchar('level', { length: 16 }).notNull().default('Pemula'),
+  tags: varchar('tags', { length: 255 }).array(),
+  resources: text('resources'),
+  transcript: text('transcript'),
+  estimatedTime: varchar('estimated_time', { length: 64 }),
+  viewCount: integer('view_count').default(0),
+  publishedAt: varchar('published_at', { length: 16 }).notNull(),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+})

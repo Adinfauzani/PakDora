@@ -2,7 +2,7 @@
 
 import { useUser } from '@clerk/nextjs'
 import Link from 'next/link'
-import { FileText, BookOpen, MessageSquare, Mail, ArrowRight } from 'lucide-react'
+import { FileText, BookOpen, MessageSquare, Mail, Video, ArrowRight } from 'lucide-react'
 
 const cards = [
   {
@@ -20,6 +20,13 @@ const cards = [
     color: 'from-gold to-gold-700',
   },
   {
+    title: 'Video Pembelajaran',
+    desc: 'Kelola Learning Center',
+    icon: Video,
+    href: '/admin/learning',
+    color: 'from-navy-600 to-navy-800',
+  },
+  {
     title: 'Guestbook',
     desc: 'Lihat pesan masuk',
     icon: MessageSquare,
@@ -31,7 +38,7 @@ const cards = [
     desc: 'Lihat pesan kontak',
     icon: Mail,
     href: '/admin/contact',
-    color: 'from-navy-600 to-navy-800',
+    color: 'from-emerald-600 to-emerald-800',
   },
 ]
 

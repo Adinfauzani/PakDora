@@ -3,6 +3,7 @@
   { "title": "About", "href": "/about" },
   { "title": "Blog", "href": "/blog" },
   { "title": "Materi", "href": "/materi" },
+  { "title": "Learning", "href": "/learning" },
   {
     "title": "More",
     "children": [
